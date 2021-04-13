@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="utf-8">
+    <title>Variables</title>
+</head>
+
+<body>
+    <script>
+        var box;
+        box=100;
+        box=30;
+        
+        document.write(box,"<br><br>");
+        
+        /*변수 선언 시 주의사항
+        1. 변수명 첫 글자로는 $,_,영문자만 올 수 있음
+        (숫자는 변수명 첫글자로 선언되지 못한다)
+        2. 변수명 첫 글자 다음은 영문자, 숫자, $, _만 포함할 수 있음
+        3. 변수명으로는 예약어(document, location, window등)을 사용할 수 없다. 예약어란 이미 자바스크립트에서 사용중인 단어를 의미한다.
+        4.변수명을 지을 때는 되도록 의미를 부여한다.
+        5.변수명을 사용할 때는 대, 소문자를 구분한다!
+        */
+        
+        //1. 문자형 데이터
+        //var 변수="사용할 문자나 숫자";
+        var s="javascript";
+        var num="100";
+        var tag="<h1> 태그안에 입력 </h1>"
+        
+        document.write(s+num);
+        document.write(tag);
+        
+        //2.숫자형 데이터
+        var no=50;
+        var three=3;
+        document.write(no+three,"<br>"); /*50+3=53*/
+        
+        //3.논리형(Boolean)데이터
+        /*논리형 데이터는 true(참), false(거짓)이 있음
+        Boolean() 메서드는 숫자 0과 null, undefined, 빈문자("")를 제외한 모든 데이터에 대해 true를 반환시킴*/
+        
+        var t=10>=100;
+        var m=Boolean(t); //var m=Boolean(10>=100);
+        
+        document.write(t,"<br>");
+        document.write(m,"<br>");
+        
+        
+        var empty=Boolean();//false
+        document.write(empty,"<br>");
+        
+        var text=Boolean('hello');//true
+        document.write(text);
+        
+        
+        
+        
+    </script>
+</body></html>

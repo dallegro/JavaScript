@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>03_else_if문</title>
+        
+        <script>
+            /*
+            (3)else if문 : 두 가지 이상의 조건식과 정해 놓은 조건을 만족하지 않았을 때 실행되는 코드
+            
+            ////////////기본형///////////////
+            
+                if(조건식1){
+                    자바스크립트 코드1;
+                }else if(조건식2){
+                    자바스크립트 코드2;
+                }else if(조건식3){
+                    자바스크립트 코드3;
+                }else if(조건식4){
+                    자바스크립트 코드4;
+                }else{
+                    자바스크립트 코드5;
+                };
+                
+                
+                *조건식 1~4까지 차례로 조건검사를 하면서 만족(true)하는 값이 나오면 그에 해당하는 코드를 실행하고 조건문 종료
+                조건식 중 만족(true)하는 값이 하나도 없으면 else문의 {}에 있는 코드 실행
+            
+            /////////////////////////////////
+            */
+            
+            //else if문 예제1
+            /*var month=prompt("현재는 몇 월입니까?");
+            
+            if(month>=3 && month<=5){ //3~5
+                document.write("꽃이 화사한 봄이네요!");
+            }else if(month>=6 && month<=8){ //6~8
+                document.write("뜨거운 여름이네요!");
+            }else if(month>=9 && month<=11){ //9~11
+                document.write("독서의 계절 가을이네요!");
+            }else{
+                document.write("흰 눈이 펑펑 내리는 겨울이네요!!");
+            };*/
+            
+            
+            //else if문 예제2 - 점수에 따른 수,우,미,양,가 평가하기
+            var score=Number(prompt("당신의 평가 점수는?","100"));    
+        
+            if(score>=90){
+                alert("수");
+            }else if(score>=80){
+                alert("우");
+            }else if(score>=70){
+                alert("미");
+            }else if(score>=60){
+                alert("양")
+            }else{
+                alert("가");
+            };
+        
+        
+        
+        
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

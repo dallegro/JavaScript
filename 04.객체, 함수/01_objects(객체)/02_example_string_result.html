@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>02_example_string</title>
+    
+    <script>
+    
+        //방문자로부터 이름을 영문으로 입력(대문자로 출력)받고, 연락처를 입력 받은 후 정보가 노출되지 않도록 전화번호 뒤의 네 자리는 '*'로 출력하시오.
+
+    	var userName=prompt("당신의 영문 이름을 입력해 주세요.");
+		
+		var upperName = userName.toUpperCase();
+		document.write(upperName,"<br>");
+		
+		var userNum=prompt("핸드폰 번호를 입력해 주세요.");
+		var result=userNum.substring(0, userNum.length-4)+"****";
+		//userNum.substring(0,7)
+		console.log(userNum.length);
+		
+		document.write(result,"<br>");
+		
+    
+    </script>
+</head>
+<body>
+   
+    
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Operators</title>
+</head>
+
+<body>
+
+    <script>
+        //1. 산술연산자 (연산 대상 데이터가 반드시 2개 필요!)
+
+        var num1 = 15;
+        var num2 = 2;
+        var result;
+
+        result = num1 + num2; //17
+        document.write(result, "<br>");
+
+        result = num1 - num2; //13
+        document.write(result, "<br>");
+
+        result = num1 * num2; //30
+        document.write(result, "<br>");
+
+        result = num1 / num2; //7.5
+        document.write(result, "<br>");
+
+        result = num1 % num2; //나머지1
+        document.write(result, "<br>");
+
+
+
+        //2.문자 결합 연산자
+
+        //문자형데이터+숫자형데이터=하나의 문자형 데이터
+        var text = "100";
+        var num = 200;
+
+        document.write(text + num, "<br>");
+
+        var t1 = "비도 오고 그래서 ";
+        var t2 = "네 생각이 났어 ";
+        var t3 = 8282;
+        var t4 = " 파전 먹으러 가자";
+        var result;
+
+        result = t1 + t2 + t3 + t4;
+        document.write(result, "<br><br>");
+
+        //3.(복합)대입연산자(=)
+        /*
+        종류      풀이
+        A=B       A=B
+        A+=B      A=A+B
+        A-=B      A=A-B
+        A*=B      A=A*B
+        A/=B      A=A/B
+        A%=B      A=A%B
+        */
+
+        var num3 = 10;
+        var num4 = 3;
+
+        num3 += num4; //num3=num3(10)+num4(3)
+        document.write(num3, "<br>"); //13
+
+        num3 -= num4; //num3=num3(13)-num4(3)
+        document.write(num3, "<br>"); //10
+
+        num3 *= num4; //num3=mun3(10)*num4(3)
+        document.write(num3, "<br>"); //30
+
+        num3 /= num4; //num3=num3(30)/num4(3)
+        document.write(num3, "<br>"); //10
+
+        num3 %= num4; //num3=num3(10)%num4(3)
+        document.write(num3, "<br>"); //1
+
+        //복합대입연산자를 활용한 HTML 표 만들기
+
+        var str = "<table border='1'>";
+        str += "<tr>"; //str=<table border='1'>+<tr>
+        str += "<td>1</td><td>2</td><td>3</td>";
+        str += "</tr>";
+        str += "</table>";
+
+        document.write(str, "<br><br>");
+
+        //4.증감연산자(단항 연산자)
+        /*
+        *기본형
+        1) 변수의 값을 1만큼 감소시킴 : 변수--; 또는 --변수;
+        2) 변수의 값을 1만큼 증가시킴 : 변수++; 또는 ++변수;
+        
+        *연산자 위치에 따른 결과
+        1) var A = ++B : B의 값을 1만큼 증가하고, 증가된 B의 값을 A에 대입하여 실행
+        2) var A =B++ : B의 값을 A에 대입하고, B의 값을 1만큼 증
+        */
+
+        var num5 = 10;
+        var num6 = 20;
+        var result;
+
+        num5--; //9
+        document.write(num5, "<br>");
+
+        num5++; //10
+        document.write(num5, "<br>");
+
+        result = num6++;
+        document.write(result, "<br>"); //result:20, num6:21
+        //먼저 num6의 값이 result에 저장, num6의 값이 1만큼 증가!
+        document.write(num6, "<br>");
+
+        result = ++num6; //result:22, num6:22
+        //num6의 값이 1만큼 증가된 후 result에 저장 //22
+        document.write(num6, "<br><br>");
+
+
+        //5. 비교 연산자
+        /*
+        *비교 연산자의 종류
+        종류      설명
+        A>B         A가 B보다 크다
+        A<B         A가 B보다 작다
+        A>=B        A가 B보다 크거나 작다
+        A<=B        A가 B보다 작거나 같다
+        
+        A==B        A와 B는 같니?
+        (숫자를 비교할 경우 자료형(type)은 숫자형이든 문자형이든 상관하지 않고  표기된 숫자만 일치하면 true를 반환함
+        가령 숫자형 10과 문자형 "10"은 같은 것으로 인식되어 true 반환!)
+        
+        
+        A!=B        A와 B는 다르니?
+        (숫자를 비교할 경우 자료형(type)은 숫자형이든 문자형이든 상관하지 않고  표기된 숫자만 다르면 true를 반환함
+        가령 숫자형 10과 문자형 "10"은 같은 것으로 인식되어 A!=B에 대해 false 반환!)
+        
+        A===B       A와 B가 같니?
+        (숫자를 비교할 경우 반드시 표기된 숫자와 자료형도 일치해야만 true를 반환 
+        10과 "10"을 비교했을 경우 표기된 숫자는 같지만 하나는 숫자형 10이고 하나는 문자형 "10"이므로 flase를 반환)
+        
+        A!==B       A와 B가 다르니?
+        (숫자를 비교할 경우 반드시 표기된 숫자와 자료형이 일치하지 않을 때 true 반환 
+        10과 "10"을 비교했을 경우 표기된 숫자는 같지만 하나는 숫자형 10이고 하나는 문자형 "10"이므로 true를 반환)
+        
+        */
+        /*var = 변수*/
+        var k = 10,
+            m = "10";
+
+        document.write(k == 10, "<br>"); //true
+        document.write(m == 10, "<br>"); //true
+
+        document.write(k === 10, "<br>"); //true
+        document.write(m === 10, "<br>"); //false "10"=10 자료형이 일치하지 않아 flase 반환
+
+
+        //비교연산자 추가예제
+        var a = 10;
+        var b = 20;
+        var c = 10;
+        var f = "20";
+        var result;
+
+        result = a > b; //10>20, false
+
+        document.write(result, "<br>");
+
+        result = a < b; //10<20, true
+        document.write(result, "<br>");
+
+        result = a <= b; //10<=20, true
+        document.write(result, "<br>");
+
+        result = b == f; //20=="20", true (자료형과 상관없이 숫자만 비교!)
+        document.write(result, "<br>");
+
+        result = a != b; //10!=20, true
+        document.write(result, "<br>");
+
+        result = b === f; //20==="20", false (=가 더 늘어났다는것은 문자인지 숫자인지도 일치해야 true! 지금은 다르니 false반환!)
+        document.write(result, "<br><br>");
+
+
+        //6.논리연산자
+        /*
+        1) 논리합(OR) ||
+            >> 피연산자 중 값이 하나라도 true가 존재하면 true로 결과값 반환
+        2) 논리값(AND) &&
+            >> 피연산자 중 값이 하나라도 false가 존재하면 false로 결과값 반환
+        3) 논리부정(NOT) !
+            >>단항 연상자. 피연산자의 값이 true이면 반대로 flase로 결과값 반환
+        
+        
+        <연산자 우선순위>
+        1. ()
+        2. 단항 연산자(--,++,!)
+        3. 산술 연산자(+,-,*,/,%)
+        4. 비교 연산자(>,>=,<,<=,==,!=,===,!==)
+        5. 논리 연산자(||,&&)
+        6. 대입(복합대입) 연산자(=,+=,-=,*=,/=,%=)
+        
+        */
+
+        var h = 10;
+        var i = 20;
+        var m = 30;
+        var n = 40;
+        var result;
+
+        result = h > i || i >= m || m > n;
+        /*
+        연산자 우선순위에서 '비교->논리' 순서
+        h(10) > i(20) || i(20) >= m(30) || m(30) >n(40);
+        false ||(or) false ||(or) false
+        ||는 true가 하나라도 존재하면 true 반환
+        true가 없으므로  false 반환
+        */
+        document.write(result, "<br>"); //flase
+
+        result = h > i || i >= m || m <= n;
+        /*
+        h(10)>i(20) || i(20)>=m(30) || m(30) <=n(40);
+        false || false || true
+        */
+        document.write(result, "<br>"); //true
+
+        result = h <= i && i >= m && m <= n;
+        /*
+        h(10) <= i(20) && i(20) >= m(30) && m(30) <= n(40);
+        true && false  && true
+        //&&는 false가 하나라도 존재하면 false 반환!
+        */
+        document.write(result, "<br>"); //false
+
+        result = h <= i && i <= m && m <= n;
+        /*
+        h(10) <= i(20) && i(20) <= m(30) && m(30) <= n(40);
+        true && true && true
+        //&&는 모든 조건이 true가 되었으므로 true 반환!
+        */
+        document.write(result, "<br>"); //true
+
+        result = !(h > i); // h(10)>i(20), flase, NOT(false) (괄호안에 있는거 먼저!)
+        //!연산자는 피연산자가 false이면 반대인 true 값 반환
+        document.write(result, "<br><br>"); //true
+
+
+        //7. 삼항 연산자
+        /*
+        연산을 위해 피연산자가 3개 필요
+        조검식의 결과에 따라 실행결과가 달라진다
+        연산한 결과 조선식의 만족 여부에 따라 실행하는 코드를 다르게 실행하고자 할 때 사용
+        
+        *기본형 : 조건식?실행문1:시행문2;
+                >>조건시이 true면 실행본 1 실행, false면 실행문2 시행
+                >>예시) 비?집:놀이동산;
+        */
+
+        var age1 = 20;
+        var age2 = 19;
+        var result = age1 > age2 ? "성인입니다!" : "미성년자입니다!";
+
+
+        document.write(result, "<br>"); //성인입니다!
+
+        //삼항연산자 추가예제
+        /*
+        prompt()메서드 : 사용자에게 입력값을 받아 가져오는 질문창 메서드
+        
+        기본형 prompt("질문","기본응답");
+        */
+
+        //prompt 테스트
+        //var hello = prompt("이름이 뭐예요?");
+        //document.write(hello + "님, 반가워요!!!!!");
+
+        //예제 - 사용자의 수학점수, 영어점수를 입력 받아서 결과에 따라 이과, 문과로 결과 출력하기
+        var math  = prompt("수학 점수를 입력하시오");
+        var eng  = prompt("영어 점수를 입력하시오");
+        var result = math>eng? "이과입니다": "문과입니다";
+        
+        document.write(result, "<br>");
+
+    </script>
+
+
+
+
+
+
+
+</body></html>

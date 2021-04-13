@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>function_review</title>
+    
+    <script>
+        //익명함수 선언
+        var a = function(){
+            document.write("안녕안녕안녕!!");
+        }
+        
+        document.write(a, "<br><br>");
+        //함수실행
+        a();
+        //typeof
+        document.write("<br>변수a의 typeof ",typeof(a),"<br><br>"); //function
+    
+        var b = function(){
+            array=[100,200];
+        }
+        
+        document.write(b,"<br>");
+        document.write("변수b의 typeof ",typeof(b),"<br><br>"); //function
+        
+        
+        //예제1. 1부터 10까지 합계구하기
+        //1+2+3+4+5+6+7+8+9+10=?
+        
+        var output=0; //합계를 담을 변수
+        function sum() {
+            for(var i=1; i<11; i++){
+                output+=i;
+            }
+            document.write(output);
+        }
+        
+        sum(); //합계55
+        document.write("<br><br>"); 
+
+        
+        //예제2. "-"을 30개 출력하는 함수
+        function dash() {
+            for(var i=1; i<31; i++){
+                document.write("-");
+            }
+        }
+        
+        dash();
+        document.write("<br><br>");
+    
+        //익명함수로 구현
+        var star = function(){
+            for(var i=1; i <=30; i++){
+                document.write("*");
+            }
+        }
+        star();
+        
+        
+        //예제3. 리턴
+        function f(x){
+            return x*x;
+        }
+        
+        alert(f(3));
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

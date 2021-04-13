@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>03_for문_array</title>
+        
+        <script>
+            //배열요소 출력
+            var green = ["강남","종로","신촌","신도림","노원","인천","부천","수원"];
+        
+            console.log(green.length); //8
+            
+            for (var i=0; i < green.length; i++) {
+                //i는 배열변수의 인덱스 번호를 구하기 위한 변수
+                //length는 8, 인덱스번호는 0부터 시작하므로 i<8 조건식 성립
+                
+                document.write(green[i]+"<br>");
+                
+            }
+            
+            
+            //배열이미지 출력
+            
+            document.write("<h1>배열이미지 출력</h1>");
+        
+            var img = ["image1.jpg","image2.jpg","image3.jpg"];
+            
+            for (var j=0; j < img.length; j++) {
+                document.write('<img src="images/'+ (j+1) + '.jpg" width="300">');
+            }
+        
+        </script>
+    </head>
+    <body>
+       <!-- <img src="images/1.jpg" width="300">-->
+        
+    </body>
+    
+</html>

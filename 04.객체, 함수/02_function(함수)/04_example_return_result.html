@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04_example_return</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #gallerZone {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        //총 8개의 이미지를 사용해 갤러리를 만들어 보세요. 처음 화면에는 1번 이미지가 나오고 다음 버튼을 누르면 다음 이미지로 변경되도록 구현하세요.
+        //if~else 문 사용 (true-다음/false-이전)
+        
+        //자바스크립트는 1은 참true, 0은 거짓false로 반환!
+        //0과 1을 on/off처럼 사용 >> 0-false-이전, 1-true-다음
+        
+        var num=1; 
+        
+        function gallery(direct) {
+            if(direct){
+                //true값을 반환받았을 때, [다음]버튼을 눌렀을 때
+                if(num==8) return;
+                num++;
+                
+            }else{
+                //false값을 반환받았을 때, [이전]버튼을 눌렀을 때
+                if(num==1) return;
+                num--;
+            }
+            
+            var imgTag=document.getElementById("photo");
+            imgTag.setAttribute("src","images/pic_"+num+".jpg");
+        }
+        
+        
+    </script>
+</head>
+
+<body>
+    <div id="gallerZone">
+        <div><img src="images/pic_1.jpg" alt="" width="500" id="photo"></div>
+        <div>
+            <button onclick="gallery(0);">이전</button>
+            <button onclick="gallery(1);">다음</button>
+        </div>
+    </div>
+</body>
+
+</html>

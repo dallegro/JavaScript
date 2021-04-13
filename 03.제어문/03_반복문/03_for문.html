@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03_for문</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .pink {
+            color: pink;
+        }
+    </style>
+    <script>
+        /*
+                (3)for문 : 조건식을 만족할 때까지 특정 코드를 반복하여 실행
+                 while문과 사용방법은 같으나 사용하기 편해 사용빈도가 높음
+                            
+                            
+                 ///////////////////기본형/////////////////////
+                            
+                 for(초깃값; 조건식; 증감식){
+                 자바스크립트 코드;}
+
+                 //////////////////////////////////////////////
+                            
+                 *실행순서 : 초깃값->조건식->자바스크립트 코드->증감식->조건식
+                            
+          */
+        //기본예제 - for문으로 1~10까지 i를 1씩 증가하며 출력
+        for (var i = 1; i <= 10; i++) {
+            //초깃값; 조건식; 증감식
+            document.write(i, "<br>");
+        };
+        //예제1 - 1~100까지의 숫자 중 5의 배수일 경우 빨간색, 7의 배수일경우 초록색, 5의 배수이며 7의 배수인 경우 핑크색으로 출력
+        //쌤이한거
+        for (var i = 1; i <= 100; i++) {
+            if (i % 5 == 00 && i % 7 == 00) { //5의 배수이면서 7의 배수
+                document.write('<span style="color:pink;">' + i + '</span> ');
+            } else if (i % 5 == 0) {
+                document.write('<span style="color:red;">' + i + '</span> ');
+            } else if (i % 7 == 00) {
+                document.write('<span style="color:green">' + i + '</span> ')
+            }
+        };
+        document.write('<hr>');
+        for (var k = 1; k <= 100; k++) {
+            if (k % 5 == 0 && k % 7 != 0) { //5의 배수이면서 7의 배수는 아니다
+                document.write('<span style="color:red;">' + k + '</span> ');
+            } else if (k % 5 != 0 && k % 7 == 0) { //5의 배수는 아니고, 7의 배수다
+                document.write('<span style="color:green">' + k + '</span> ');
+            } else if (k % 5 == 0 && k % 7 == 0) { //5의 배수이면서 7의 배수다
+                document.write('<span style="color:pink;">' + k + '</span> ');
+            }
+        };
+        //내가한거
+        /*for (var i = 1; i <= 100; i++) {
+            //초깃값; 조건식; 증감식
+            if (i % 5 == 0 && i % 7 == 0) { //5의 배수이자 7의배수 
+                document.write("<p class='pink'>" + i + "</p>");
+            } else if (i % 5 == 0) { //5의배수
+                document.write("<p class='red'>" + i + "</p>");
+            } else if (i % 7 == 0) { //7의 배수
+                document.write("<p class='green'>" + i + "</p>");
+            }
+        };*/
+        //예제2 - 2단에서 9단까지 구구단 출력 
+        //쌤이한거
+        var gugu; //구구단을 담을 변수
+
+        //[1]단수를 올리기 위한 for문
+        for (var k = 2; k <= 9; k++) {
+            gugu += "<h2>" + k + "단</h2>"
+
+            //[2]곱해지는 수를 위한 for문
+            for (var j = 1; j <= 9; j++) {
+                gugu += k + " x " + j + " = " + (k * j) + "<br>";
+            }
+        }
+        document.write(gugu);
+
+        //내가한거
+        /*for (var d = 2; d <= 9; d++) { //2~9 증가 곱
+                    document.write('<hr>');
+            for (var j = 1; j <= 9; j++) { //1~9증가 곱
+                document.write(d + ' x ' + j + ' = ' + (d * j) + '<br>');
+            };
+        };*/
+    </script>
+
+</head>
+
+<body>
+</body></html>

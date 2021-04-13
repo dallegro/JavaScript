@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>04_Document-Object-Model</title>
+
+    <script>
+        /*3.문서 객체 모델 (DOM-Document Object Model)
+     -로딩된 html 문서는 트리구조 형태로 html 요소의  부모자식관계를 파악하여 객체 접근 모델링을 제공하는 것이 DOM
+     
+     1. DOM의 각 요소 접근(선택)방법 : 
+     
+     (1) 아이디요소로 접근하기
+        document.getElementById(아이디명)
+        아이디는 유일한 요소이므로 element 단수형 이름을 사용
+        
+     (2) 클래스요소로 접근하기
+        document.getElementsByClassName(클래스명)
+        클래스는 다중사용이 가능하므로 elements 라는 복수형 이름 사용!
+        
+        여러 개의 집학으로 사용하므로 컬렉션 집합에 이 객체를 담고 item()메서드를 사용한다
+        예) document.getElementsByClassName(클래스명).item(7);
+         >>item(번호)는 0부터 시작하므로 7일 경우 8번째 요소임
+         
+    (3) 태그요소로 접근하기
+        document.getElementsByTagName(태그요소명)
+        
+        *getElementsByClassName과 getElementsByTagName은 컬랙션집합이므로 항상 개수를 알아낼 수 있다
+        
+        > document.getElementsByClassName(클래스명).length;
+        > document.getElementsByClassName(태그요소명).length;
+        
+    (4) CSS의 선택자 코드 접근하기
+        1) document.querySelectorAll(CSS선택자)
+        CSS선택자 문법을 그대로 사용하여 자바스크립트 내장객체에 질의(query)를 보내서 결과를 얻는 방식
+        
+        예)document.querySelectorAll(".smenu>ul>li").item(2)
+        
+        2) document.querySelector(CSS선택자)
+        선택요소가 다수의 집합요소라 할지라도 '처음 만나는 요소 하나만' 리턴하여 가져옴
+        item(번호) 또는 length를 사용할 수 없음!
+        
+        예) document.querySelector("#my>ul>li")
+        >>이 경우 만나는 li중 처음 것 하나만 가져온다
+        
+        
+        2. DOM으로 각 요소 변경방법
+        
+        (1) 선택요소 내부의 html 변경하기
+            선택요소.innerHTML = 변경할 코드(내용);
+            예) document.getElementById("my").innerHTML = "<b>내 메뉴</b>"
+        
+        (2) 선택요소 내부의 속성 변경하기
+            선택요소.속성명 = 값;
+            예) document.getElementsByClassName("my").scr="images/1.jpg";
+            
+        (3) 선택요소 내부의 속성을 setAttribute 메서드로 변경하기
+            선택요소.setAttribut(속성명, 속성값);
+            예)
+            document.getElementById("my").setAttribute("src","img/bb.png");
+            
+            *속성값을 가져오는 메서드는 getAttribute(속성명);
+            var attr= 
+            document.getElementById("main").getAttribute("src"); 
+            console.log(attr);
+        
+        (4) 선택요소의 스타일시트 변경하기
+            선택요소.style.스타일속성명 = 값;
+            예) 
+            document.getElementById("my").style.backgroundColor="red";
+            
+            *자바스크립트의 스타일속성 작성 방법
+            1) JS는 스타일속성에 특수기호 '-'을 식별자에 사용할 수 없음
+            2) '-'으로 연결되 속성은 끊겨진 단어의 첫 글자를 대문자로 변경
+            
+            *이벤트란?
+            -문서 객체 모델에서 사용됨
+            -JS에서 특별한 일이 일어나면 이에 반응해서 자동으로 실행되도록 설정해 둔 것
+            
+            *이벤트 핸들러란?
+            - 이벤트 발생 시, 행해져야 할 내용을 자바스크립트로 적어두는 것
+             (해당요소 이벤트= "자바스크립트 코드")
+             
+             (1)선택요소.on이벤트명=function(){
+                구현코드;
+             };
+             예) document.getElementById("my").onclick = function(){
+                alert("날씨가 추워요!");
+             };
+             
+             (2) 선택요소.addEventListener(이벤트명, 함수);
+             설정한 이벤트가 선택요소에 발생할 때 함수의 코드를 실행한다
+             예) doument.getElementById("my").addEventListener("click",function(){
+             구현코드;
+             alert("교실이 따뜻해요!");
+             });
+             
+             (3) window.onload
+                window.addEventListener("load", funciont(){});
+                onload는 브라우저가 웹페이지의 로딩을 끝냈을 때 일어남 
+                즉, 페이지의 모든 요소들이 로드된 이후에 호출!
+            
+            
+            *마우스 관련 이벤트
+            
+            1. click - 클릭했을 때
+            2. dbclick - 더블클릭 했을때
+            3. contextmenu- 마우스 오른쪽 버튼 클릭시 대화창
+            4. mouseover-마우스 오버시
+            5. mouseenter-요소 경계선 안으로 들어갈 때
+            6. mouseout-마우스 아웃시
+            7. mouseleave - 요소 경계선 바깥으로 나갈 때
+            8. mousemove- 마우스포인터가 요소 안에서 움직일때
+            9. mousedown- 마우스 버튼이 눌러졌을때
+            10.mouseup-마우스 버튼이 눌렸다가 올라올 때
+            
+            *키보드 관련 이벤트
+            1. keypress - 키보드가 눌려졌을 때
+            2. keydown - 키보드가 눌려서 내려갔을 때
+            3. keyup - 키보드가 눌렸다가 올라올 때
+            
+            *기타 이벤트
+            1.blur - 요소가 마우스로 클릭되었다가 다른 곳을 클릭할 때
+            2.focus - 요소를 마우스로 클릭하여 초점이 올 때
+            3.change - select 요소, input의 체크박스, 라디오버튼 등의 선택상태가 변경될 때 발생
+            
+            *참고로 html에서 이벤트를 속성으로 쓸 때는 on을 붙여서 사용
+            예) click- onclick
+            
+     */
+        
+        /*
+        [DOM 컬렉션이란?]
+        
+        DOM메서드를 사용하여 여러 개의 객체를 담으면 컬렉션이 된다.
+        개념적으로 배열과 매우 유사하나 배열은 아니다.
+        호출시 item(숫자) 또는 변수[숫자]로 호출한다.
+        숫자는 0부터 시작할 것!
+        
+        *컬렉션을 만드는 요소 선택 메서드
+        (1) document.getElementsByClassName(클래스명).item(숫자)
+            document.getElementsByClassName(클래스명)[숫자]
+            
+        (2) document.getElementsByTagName(태그요소명).item(숫자)
+            document.getElementsByTagName(태그요소명)[숫자]
+        
+        (3) document.querySelectorAll(선택자).item(숫자)
+            document.querySelectorAll(선택자)[숫자]
+        */
+    </script>
+
+</head>
+
+<body>
+    
+    <h2>자바스크립트 이벤트</h2>
+    <p id="show"></p>
+    <button onclick="document.getElementById('show').innerHTML=Date();">지금 몇 시죠?</button>
+    
+<!--    <img src="images/bigissue_yoona.jpg" alt="윤아" id="test">
+
+    <script>
+        var attr =document.getElementById("test").setAttribute("src");
+        console.log(attr);
+
+        document.getElementById("test").setAttribute("alt", "태연");
+        var alt =document.getElementById("test").setAttribute("alt");
+        console.log(alt);
+    </script>-->
+    
+    
+</body></html>

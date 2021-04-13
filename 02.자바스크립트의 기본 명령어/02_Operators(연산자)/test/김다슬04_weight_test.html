@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>적정체중 테스트</title>
+    <script>
+        /*조건
+        이름 : 그린이
+        신장 : 180(cm)
+        체중 : 74(kg)
+        적정체중 : (180-100)*0.9=72(kg)
+        결과 : 적정 체중은 72kg이며, 현재 적정체중에서 2kg 초과
+        */
+
+        //STEP1. 적정체중 구하기 : 적정체중=(본인신장-100)*0.9
+
+        var userHeight = 180; //그린이 신장
+
+        var normal = (userHeight - 100) * 0.9;
+        document.write("그린이 적정체중 : " + normal, "<br><br>")
+
+
+        //STEP2. 방문자가 입력한 정보로 적정체중 구하기
+
+        //이름, 키, 몸무게
+
+        var name = prompt("당신의 이름은?");
+
+        var height = Number(prompt("키는 얼마입니까?")); //신장
+
+        var weight = Number(prompt("몸무게는 얼마입니까?")); //체중
+
+        var normal = (height - 100) * 0.9;
+
+        document.write(name + '님의 적정체중은 ' + normal + "kg 입니다. <br><br>");
+
+        //1) 단일 수치 비교
+        var normalWeight = weight == normal;
+        //true -적정체중 ,false- 적정체중이 아니다.
+        //document.write(normalWeight);
+
+        //2) 오차범위 비교 (+5 / -5)
+        //        var normalWeight = (weight >= (normal - 5)) && (weight <= (normal + 5));
+        //
+        //        document.write(name + "님의 ");
+        //        
+        //        normalWeight ? document.write("현재 체중은 " + weight + "kg으로 " + "적정체중 입니다.") : document.write("현재 체중은 " + weight + "kg으로 " + "적정체중이 아닙니다.");
+        //        
+        //        
+        var nomalWeight = weight >= normal - 5 && weight <= normal + 5;
+        
+        var result = normalWeight? "적정 체중 입니다." : "적정 체중이 아닙니다.";
+        
+        document.write(name+"님은 "+result);
+    </script>
+</head>
+
+<body>
+</body></html>
